@@ -20,12 +20,35 @@ namespace KnowledgeCheck1_Calculator
 
         public int Multiply(int first, int second)
         {
-            throw new NotImplementedException();
+            return first * second;
+
+         
         }
 
         public double Divide(double first, double second)
         {
             return first / second;
         }
+        private int PerformOperation(int first, int second, string operation)
+        {
+            switch (operation)
+            {
+                case "+":
+                    return first + second;
+                case "-":
+                    return first - second;
+                case "*":
+                    return first * second;
+                case "/":
+                    if (second == 0)
+                    {
+                        throw new ArgumentException("Cannot divide by zero.");
+                    }
+                    return first / second;
+                default:
+                    throw new ArgumentException("Invalid operation.");
+            }
+        }
     }
 }
+
